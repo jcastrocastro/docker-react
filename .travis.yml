@@ -1,0 +1,9 @@
+sudo: required
+services:
+	- docker
+
+before_install:
+	- docker build -t jcastrocastro/docker-react -f Dockerfile.dev .
+
+script:
+	- docker run jcastrocastro/docker-react npm run test -- --coverage
